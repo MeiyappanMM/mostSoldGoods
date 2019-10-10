@@ -1,1 +1,43 @@
-<p>products works!</p>
+<div class="row">
+
+  <div class="col-md-6">
+    <h2><i class="fa fa-cart-arrow-down"></i>Products</h2>
+  </div>
+  <!-- <div class="col-md-6">
+    <h5 class="text-right text-secondary">Total Owed: {{totalOwed}}</h5>
+  </div> -->
+
+</div>
+<!-- <h2 class="display-2">{{clients.length}}</h2> -->
+<table *ngIf="products?.length > 0;else noProducts" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Category</th>
+      <th>SubCategory</th>
+      <th>Brand</th>
+      <th>ProductName</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>NoOfSoldUnits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.Category}}</td>
+      <td>{{product.SubCategory}}</td>
+      <td>{{product.Brand}}</td>
+      <td>{{product.ProductName}}</td>
+      <td>{{product.Quantity}}</td>
+      <td>{{product.Price | currency: 'INR' : 'symbol'}}</td>
+      <td>{{product.NoOfSoldUnits}}</td>
+      <!-- <td><a routerLink="product/{{product.id}}" routerLinkActive="router-link-active"  class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i>Details</a></td> -->
+    </tr>
+  </tbody>
+</table>
+
+
+<ng-template #noProducts>
+  <hr>
+  <h5>There are no products in the system</h5>
+</ng-template>
+

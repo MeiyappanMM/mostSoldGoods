@@ -1,1 +1,85 @@
-<p>add-product works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn text-danger btn-link">
+      <i class="fa fa-arrow-circle-left">Back To DashBoard</i></a>
+  </div>
+
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Client
+  </div>
+  <div class="card-body">
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+      <div class="form-group">
+        <label for="Category">Category</label>
+        <input id="Category" class="form-control"
+        #productCategory="ngModel"
+           [ngClass]="{'is-invalid': productCategory.errors &&
+            productCategory.touched}"
+           [(ngModel)]="product.Category"
+        type="text" name="Category">
+      </div>
+      <div class="form-group">
+        <label for="SubCategory">SubCategory</label>
+        <input id="SubCategory" class="form-control"
+        #productSubCategory="ngModel"
+           [ngClass]="{'is-invalid': productSubCategory.errors &&
+            productSubCategory.touched}"
+           [(ngModel)]="product.SubCategory"
+        type="text" name="SubCategory">
+      </div>
+      <div class="form-group">
+        <label for="Brand">Brand</label>
+        <input id="Brand" class="form-control"
+        #productBrand="ngModel"
+           [ngClass]="{'is-invalid': productBrand.errors &&
+            productBrand.touched}"
+           [(ngModel)]="product.Brand"
+        type="text" name="Brand">
+      </div>
+      <div class="form-group">
+        <label for="ProductName">ProductName</label>
+        <input id="ProductName" class="form-control"
+        #productProductName="ngModel"
+           [ngClass]="{'is-invalid': productProductName.errors &&
+            productProductName.touched}"
+           [(ngModel)]="product.ProductName"
+        type="text" name="ProductName">
+      </div>
+      <div class="form-group">
+        <label for="Quantity">Quantity</label>
+        <input id="Quantity" class="form-control"
+        #productQuantity="ngModel"
+           [ngClass]="{'is-invalid': productQuantity.errors &&
+            productQuantity.touched}"
+           [(ngModel)]="product.Quantity"
+        type="text" name="Quantity">
+      </div>
+      <div class="form-group">
+        <label for="Price">Price</label>
+        <input id="Price" class="form-control"
+        #productPrice="ngModel"
+           [ngClass]="{'is-invalid': productPrice.errors &&
+            productPrice.touched}"
+           [(ngModel)]="product.Price"
+        type="number" name="Price">
+      </div>
+      <div class="form-group">
+        <label for="NoOfSoldUnits">NoOfSoldUnits</label>
+        <input id="NoOfSoldUnits" class="form-control"
+        #productNoOfSoldUnits="ngModel"
+           [ngClass]="{'is-invalid': productNoOfSoldUnits.errors &&
+            productNoOfSoldUnits.touched}"
+           [(ngModel)]="product.NoOfSoldUnits"
+        type="number" name="NoOfSoldUnits">
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-warning btn-block">
+    </form>
+  </div>
+</div>
