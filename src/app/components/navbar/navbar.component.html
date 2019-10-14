@@ -1,22 +1,28 @@
 <nav class="navbar navbar-expand-md navbar-light bg-info mb-4">
   <div class="container">
-    <a routerLink='[/]' class="navbar-brand">MostSoldGoods</a>
+    <a routerLink='/' class="navbar-brand">MostSoldGoods</a>
     <button class="navbar-toggler" type='button' data-toggle="collapse" data-target="#navbarMain">
-    <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id='navbarMain'>
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a routerLink='/' class="nav-link">DashBoard</a>
-        </li>
+        </li> -->
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a routerLink='/register' class="nav-link">Register</a>
+        <li *ngIf="!isLoggedIn " class="nav-item">
+          <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="nav-link">Login</a>
         </li>
-        <li class="nav-item">
-            <a routerLink='/login' class="nav-link">Login</a>
-          </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a href='#' class="nav-link">{{ loggedInUser }}</a>
+        </li>
+        <li *ngIf="isLoggedIn " class="nav-item">
+          <a [routerLink]="['/product/add']" routerLinkActive="router-link-active" class="nav-link">AddMostSoldGoods</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a href='#' (click)='onLogoutClick()' class="nav-link">Logout</a>
+        </li>
       </ul>
     </div>
   </div>

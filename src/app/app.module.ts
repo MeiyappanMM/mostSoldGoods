@@ -21,6 +21,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DesiredDetailsComponent } from './components/desired-details/desired-details.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AddProductComponent,
     EditProductComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    DesiredDetailsComponent
   ],
   imports: [
     BrowserModule,
