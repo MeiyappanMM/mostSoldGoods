@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn text-danger btn-link">
+      <i class="fa fa-arrow-circle-left">Back To DashBoard</i></a>
+  </div>
+
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Client
+  </div>
+  <div class="card-body">
+    <form #billingForm="ngForm" (ngSubmit)="onSubmit(billingForm)">
+      <div class="form-group">
+        <label for="Category">Category</label>
+        <input id="Category" class="form-control"
+        #billingCategory="ngModel"
+           [ngClass]="{'is-invalid': billingCategory.errors &&
+            billingCategory.touched}"
+           [(ngModel)]="billing.Category"
+        type="text" name="Category">
+      </div>
+      <div class="form-group">
+        <label for="SubCategory">SubCategory</label>
+        <input id="SubCategory" class="form-control"
+        #billingSubCategory="ngModel"
+           [ngClass]="{'is-invalid': billingSubCategory.errors &&
+            billingSubCategory.touched}"
+           [(ngModel)]="billing.SubCategory"
+        type="text" name="SubCategory">
+      </div>
+      <div class="form-group">
+        <label for="Brand">Brand</label>
+        <input id="Brand" class="form-control"
+        #billingBrand="ngModel"
+           [ngClass]="{'is-invalid': billingBrand.errors &&
+            billingBrand.touched}"
+           [(ngModel)]="billing.Brand"
+        type="text" name="Brand">
+      </div>
+      <div class="form-group">
+        <label for="ProductName">ProductName</label>
+        <input id="ProductName" class="form-control"
+        #billingProductName="ngModel"
+           [ngClass]="{'is-invalid': billingProductName.errors &&
+            billingProductName.touched}"
+           [(ngModel)]="billing.ProductName"
+        type="text" name="ProductName">
+      </div>
+      <div class="form-group">
+        <label for="Quantity">Quantity</label>
+        <input id="Quantity" class="form-control"
+        #billingQuantity="ngModel"
+           [ngClass]="{'is-invalid': billingQuantity.errors &&
+            billingQuantity.touched}"
+           [(ngModel)]="billing.Quantity"
+        type="number" name="Quantity">
+      </div>
+      <div class="form-group">
+        <label for="Price">Price</label>
+        <input id="Price" class="form-control"
+        #billingPrice="ngModel"
+           [ngClass]="{'is-invalid': billingPrice.errors &&
+            billingPrice.touched}"
+           [(ngModel)]="billing.Price"
+        type="number" name="Price">
+      </div>
+      <div class="form-group">
+        <label for="Date">Date</label>
+        <input id="Date" class="form-control"
+        #billingDate="ngModel"
+           [ngClass]="{'is-invalid': billingDate.errors &&
+            billingDate.touched}"
+           [(ngModel)]="billing.Date"
+        type="text" name="Date">
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-warning btn-block">
+    </form>
+  </div>
+</div>

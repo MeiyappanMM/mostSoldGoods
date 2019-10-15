@@ -1,43 +1,107 @@
 <div class="container">
   <form (submit)='onSubmit()'>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="ProductName">ProductName:</label>
       <input id="ProductName" class="form-control" type="text" name="ProductName">
-    </div>
-    <div class="form-group">
-      <label for="From">From:</label>
-      <select id="From" class="form-control" name="From" multiple>
-        <option>Jan</option>
-        <option>Feb</option>
-        <option>Mar</option>
-        <option>Apr</option>
-        <option>May</option>
-        <option>Jun</option>
-        <option>Jul</option>
-        <option>Aug</option>
-        <option>Sep</option>
-        <option>Oct</option>
-        <option>Nov</option>
-        <option>Dec</option>
+    </div> -->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label for="from" class="input-group-text">From</label>
+      </div>
+      <select name="from" id="from" class="custom-select">
+        <option selected>Choose..</option>
+        <option value="1">Jan</option>
+        <option value="2">Feb</option>
+        <option value="3">Mar</option>
+        <option value="4">Apr</option>
+        <option value="5">May</option>
+        <option value="6">Jun</option>
+        <option value="7">Jul</option>
+        <option value="8">Aug</option>
+        <option value="9">Sep</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">Dec</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="To">TO:</label>
-      <select id="To" class="form-control" name="To" multiple>
-        <option>Jan</option>
-        <option>Feb</option>
-        <option>Mar</option>
-        <option>Apr</option>
-        <option>May</option>
-        <option>Jun</option>
-        <option>Jul</option>
-        <option>Aug</option>
-        <option>Sep</option>
-        <option>Oct</option>
-        <option>Nov</option>
-        <option>Dec</option>
+    <div class="input-group mb-3">
+      <select name="to" id="to" class="custom-select">
+        <option selected>Choose..</option>
+        <option value="1">Jan</option>
+        <option value="2">Feb</option>
+        <option value="3">Mar</option>
+        <option value="4">Apr</option>
+        <option value="5">May</option>
+        <option value="6">Jun</option>
+        <option value="7">Jul</option>
+        <option value="8">Aug</option>
+        <option value="9">Sep</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">Dec</option>
       </select>
+      <div class="input-group-append">
+        <label for="to" class="input-group-text">To</label>
+      </div>
     </div>
-  </form>
-</div>
+    <div class="input-group">
+      <select name="Category" id="Category"  class="custom-select">
+        <option selected>All Categories</option>
+        <option value="CookingEssentials">CookingEssentials</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Watch">Watch</option>
+      </select>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type='button'>Search</button>
+      </div>
+    </div>
 
+  </form>
+  <hr>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <h2><i class="fa fa-cart-arrow-down"></i>Products</h2>
+      </div>
+      <!-- <div class="col-md-6">
+        <h5 class="text-right text-secondary">Total Owed: {{totalOwed}}</h5>
+      </div> -->
+
+    </div>
+    <!-- <h2 class="display-2">{{clients.length}}</h2> -->
+    <table *ngIf="billings?.length > 0;else noBillings" class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Category</th>
+          <th>SubCategory</th>
+          <th>Brand</th>
+          <th>ProductName</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bill of billings">
+          <td>{{bill.Category}}</td>
+          <td>{{bill.SubCategory}}</td>
+          <td>{{bill.Brand}}</td>
+          <td>{{bill.ProductName}}</td>
+          <td>{{bill.Quantity}}</td>
+          <td>{{bill.Price | currency: 'INR' : 'symbol'}}</td>
+          <td>{{bill.Date | date: 'short' }}</td>
+          <!-- <td><a routerLink="product/{{product.id}}" routerLinkActive="router-link-active"  class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i>Details</a></td> -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <ng-template #noBillings>
+      <hr>
+      <h5>There are no items to bill in the system</h5>
+    </ng-template>
+
+
+  </div>
+
+</div>

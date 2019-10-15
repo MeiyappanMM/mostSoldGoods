@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Billing } from '../../models/billing';
+import { BillingService } from '../../services/billing.service';
 @Component({
   selector: 'app-desired-details',
   templateUrl: './desired-details.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DesiredDetailsComponent implements OnInit {
 
-  constructor() { }
+  billings:Billing[];
+  constructor(private billingService:BillingService) { }
 
   ngOnInit() {
+    this.billingService.getBillings().subscribe(billings =>{
+      this.billings = billings;
+    });
   }
 
 }

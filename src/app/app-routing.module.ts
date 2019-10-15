@@ -9,6 +9,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DesiredDetailsComponent } from './components/desired-details/desired-details.component';
+import { AddBillComponent } from './components/add-bill/add-bill.component';
+
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes =[
@@ -16,6 +19,7 @@ const routes: Routes =[
   {path: 'login',component:LoginComponent},
   {path: 'register',component:RegisterComponent},
   {path: 'product/add',component:AddProductComponent,canActivate:[AuthGuard]},
+  {path: 'billing/add',component:AddBillComponent,canActivate:[AuthGuard]},
   {path: 'product/edit/:id',component:EditProductComponent,canActivate:[AuthGuard]},
   {path: 'product/:id',component:ProductsDetailsComponent,canActivate:[AuthGuard]},
   {path: '**',component:NotFoundComponent,canActivate:[AuthGuard]}
