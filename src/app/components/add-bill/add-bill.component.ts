@@ -17,7 +17,7 @@ export class AddBillComponent implements OnInit {
     ProductName: "",
     Quantity: 0,
     Price: 0,
-    Date: ""
+    Date: new Date()
   };
 
   @ViewChild("billingForm", { static: false }) form: any;

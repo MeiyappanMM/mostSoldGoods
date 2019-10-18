@@ -1,5 +1,5 @@
 <div class="container">
-  <form (submit)='onSubmit()'>
+  <form #searchForm = 'ngForm' (submit)='onSubmit(searchForm)'>
     <!-- <div class="form-group">
       <label for="ProductName">ProductName:</label>
       <input id="ProductName" class="form-control" type="text" name="ProductName">
@@ -8,51 +8,51 @@
       <div class="input-group-prepend">
         <label for="from" class="input-group-text">From</label>
       </div>
-      <select name="from" id="from" class="custom-select">
+      <select name="SearchFrom" id="SearchFrom" class="custom-select" [(ngModel)]="search.SearchFrom">
         <option selected>Choose..</option>
-        <option value="1">Jan</option>
-        <option value="2">Feb</option>
-        <option value="3">Mar</option>
-        <option value="4">Apr</option>
-        <option value="5">May</option>
-        <option value="6">Jun</option>
-        <option value="7">Jul</option>
-        <option value="8">Aug</option>
-        <option value="9">Sep</option>
-        <option value="10">Oct</option>
-        <option value="11">Nov</option>
-        <option value="12">Dec</option>
+        <option value="0">Jan</option>
+        <option value="1">Feb</option>
+        <option value="2">Mar</option>
+        <option value="3">Apr</option>
+        <option value="4">May</option>
+        <option value="5">Jun</option>
+        <option value="6">Jul</option>
+        <option value="7">Aug</option>
+        <option value="8">Sep</option>
+        <option value="9">Oct</option>
+        <option value="10">Nov</option>
+        <option value="11">Dec</option>
       </select>
     </div>
     <div class="input-group mb-3">
-      <select name="to" id="to" class="custom-select">
+      <select name="SearchTo" id="SearchTo" class="custom-select" [(ngModel)]="search.SearchTo">
         <option selected>Choose..</option>
-        <option value="1">Jan</option>
-        <option value="2">Feb</option>
-        <option value="3">Mar</option>
-        <option value="4">Apr</option>
-        <option value="5">May</option>
-        <option value="6">Jun</option>
-        <option value="7">Jul</option>
-        <option value="8">Aug</option>
-        <option value="9">Sep</option>
-        <option value="10">Oct</option>
-        <option value="11">Nov</option>
-        <option value="12">Dec</option>
+        <option value="0">Jan</option>
+        <option value="1">Feb</option>
+        <option value="2">Mar</option>
+        <option value="3">Apr</option>
+        <option value="4">May</option>
+        <option value="5">Jun</option>
+        <option value="6">Jul</option>
+        <option value="7">Aug</option>
+        <option value="8">Sep</option>
+        <option value="9">Oct</option>
+        <option value="10">Nov</option>
+        <option value="11">Dec</option>
       </select>
       <div class="input-group-append">
         <label for="to" class="input-group-text">To</label>
       </div>
     </div>
     <div class="input-group">
-      <select name="Category" id="Category"  class="custom-select">
+      <select name="SearchCategory" id="SearchCategory"  class="custom-select" [(ngModel)]="search.SearchCategory">
         <option selected>All Categories</option>
         <option value="CookingEssentials">CookingEssentials</option>
         <option value="Mobile">Mobile</option>
         <option value="Watch">Watch</option>
       </select>
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type='button'>Search</button>
+        <button class="btn btn-outline-secondary" type='submit' value='submit'>Search</button>
       </div>
     </div>
 
@@ -79,6 +79,7 @@
           <th>ProductName</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
@@ -89,7 +90,8 @@
           <td>{{bill.ProductName}}</td>
           <td>{{bill.Quantity}}</td>
           <td>{{bill.Price | currency: 'INR' : 'symbol'}}</td>
-          <td>{{bill.Date | date: 'short' }}</td>
+          <td>{{bill.Date | date : 'shortDate' }}</td>
+          <!-- <td>{{ bill.Date.getMonth() }}</td> -->
           <!-- <td><a routerLink="product/{{product.id}}" routerLinkActive="router-link-active"  class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i>Details</a></td> -->
         </tr>
       </tbody>
